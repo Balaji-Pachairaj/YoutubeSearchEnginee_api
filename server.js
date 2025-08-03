@@ -8,6 +8,7 @@ const cors = require("cors");
 const app = express();
 
 const routers = require("./api/routes/index");
+const searchRoutes = require("./api/routes/search")
 
 // CORS middleware setup (allow all for now, customize as needed)
 app.use(cors());
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api", routers);
+app.use("/api", searchRoutes);
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to the backend API!" });
 });
